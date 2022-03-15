@@ -1,11 +1,12 @@
 import { IListAlertsUseCase } from '@domain/Alerts/usecases'
-import { CemandenService } from '@infrastructure/services/CemandenService'
-import { ListAlertsUseCase } from '@usecases/Alerts/ListAlertsUsecase'
+import { CemandeService } from '@infrastructure/services/CemadenService'
+import { ICemadenService } from '@infrastructure/services/ICemadenService'
+import { ListAlertsUseCase } from '@usecases/Alerts/ListAlertsUseCase'
 import { container } from 'tsyringe'
 
 
 // services
-container.registerSingleton<CemandenService>('CemandenService', CemandenService)
+container.registerSingleton<ICemadenService>('CemandeService', CemandeService)
 
 // UseCase
 container.registerSingleton<IListAlertsUseCase>('ListAlertsUseCase', ListAlertsUseCase)

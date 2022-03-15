@@ -1,12 +1,12 @@
 
 export type AlertsStatus = {
   alerts: AlertsDetail[],
-  upatedAt: string
+  updatedAt: string
 }
 
 type AlertsDetail = {
-  codAlerta: number,
-  codIbge: number,
+  alertCode: number,
+  ibgeCode: number,
   event: string,
   level: string,
   status: number
