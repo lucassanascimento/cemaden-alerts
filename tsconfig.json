@@ -1,14 +1,51 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "module": "commonjs",
-    "target": "es2019",
-    "esModuleInterop": true,
     "rootDir": "src",
-    "baseUrl": "src",
+    "module": "commonJS",
+    "target": "es2020",
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "strictPropertyInitialization": false,
+    "allowJs": true,
+    "strict": true,
+    "moduleResolution": "Node",
+    "sourceMap": true,
+    "baseUrl": ".",
+    "skipLibCheck": true,
     "paths": {
-      "@/*": ["*"]
-    }
+      "@main/*": [
+        "./src/main/*"
+      ],
+      "@application/*": [
+        "./src/application/*"
+      ],
+      "@domain/*": [
+        "./src/domain/*"
+      ],
+      "@infrastructure/*": [
+        "src/infrastructure/*"
+      ],
+      "@usecases/*": [
+        "./src/usecases/*"
+      ],
+      "@presentation/*": [
+        "./src/presentation/*"
+      ],
+      "@commons/*": [
+        "./src/commons/*"
+      ],
+    },
+    "lib": [
+      "ES2020"
+    ]
   },
-  "include": ["src"]
+  "include": [
+    "**/src/**/*"
+  ],
+  "exclude": [
+    "**/node_modules/**/*"
+  ]
 }

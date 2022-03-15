@@ -1,5 +1,7 @@
+import { injectable } from "tsyringe";
 import { ICemadenService } from "./ICemandenService";
 
+@injectable()
 export class CemandenService implements ICemadenService
 {
   async listAlerts(): Promise<ICemadenService.Params>

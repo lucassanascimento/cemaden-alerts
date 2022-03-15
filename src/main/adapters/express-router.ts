@@ -1,5 +1,5 @@
-import { Controller } from '@/presentation/contracts'
 
+import { Controller } from '@presentation/interfaces'
 import { Request, Response } from 'express'
 
 export const adaptRoute = (controller: Controller) => {

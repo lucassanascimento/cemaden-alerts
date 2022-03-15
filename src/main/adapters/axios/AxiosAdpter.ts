@@ -1,4 +1,4 @@
-import { ServerError } from '@/commons/errors/ServerError'
+import { ServerError } from '@commons/errors/ServerError'
 import { AxiosInstance } from 'axios'
 
 export class AxiosAdpter
