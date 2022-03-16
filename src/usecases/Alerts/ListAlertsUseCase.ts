@@ -4,17 +4,20 @@ import { ICemadenService } from '@infrastructure/services/CemadenService/ICemade
 import { autoInjectable, inject, injectable, singleton } from 'tsyringe'
 
 @injectable()
-export class ListAlertsUseCase implements IListAlertsUseCase
-{
+export class ListAlertsUseCase implements IListAlertsUseCase {
   constructor(
     @inject('CemandeService')
     private cemandenService: ICemadenService
   ) { }
-  async handle(): Promise<AlertsStatus>
-  {
-    const ale = await this.cemandenService.listAlerts()
+
+  async handle(): Promise<AlertsStatus> {
+    const alerts = await this.cemandenService.listAlerts()
+    return this.makeAlertsStatus(alerts)
+  }
+
+  private makeAlertsStatus = (data:  ICemadenService.Params): AlertsStatus => {
     return {
-      alerts: ale.alertas.map((alert) => ({
+      alerts: data.alertas.map((alert) => ({
         alertCode: alert.cod_alerta,
         ibgeCode: alert.codibge,
         event: alert.evento,
@@ -23,7 +26,7 @@ export class ListAlertsUseCase implements IListAlertsUseCase
         createdAt: alert.datahoracriacao,
         updatedAt: alert.ult_atualizacao,
       })),
-      updatedAt: ale.atualizado
+      updatedAt: data.atualizado
     }
   }
 }
