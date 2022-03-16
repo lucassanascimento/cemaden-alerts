@@ -4,6 +4,7 @@ import { ICemadenService } from "./ICemadenService";
 @injectable()
 export class CemandeService implements ICemadenService
 {
+  constructor(){}
   async listAlerts(): Promise<ICemadenService.Params>
   {
     const alerts = {
