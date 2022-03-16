@@ -1,6 +1,6 @@
 import { AlertsStatus } from '@domain/Alerts';
 import { IListAlertsUseCase } from '@domain/Alerts/usecases';
-import { ICemadenService } from '@infrastructure/services/ICemadenService';
+import { ICemadenService } from '@infrastructure/services/CemadenService/ICemadenService';
 import { autoInjectable, inject, injectable, singleton } from 'tsyringe'
 
 @injectable()

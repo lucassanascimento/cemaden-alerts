@@ -1,26 +1,22 @@
-import { injectable } from "tsyringe";
+import { inject, injectable } from "tsyringe";
+import { IHttpService } from "../HttpService/IHttpService";
 import { ICemadenService } from "./ICemadenService";
+import env from '@main/config/env'
 
 @injectable()
 export class CemandeService implements ICemadenService
 {
-  constructor(){}
+  constructor(
+    @inject('HttpService')
+    private httpService: IHttpService
+  ) { }
   async listAlerts(): Promise<ICemadenService.Params>
   {
-    const alerts = {
-      alertas: [
-        {
-          cod_alerta: 721,
-          datahoracriacao: "05-02-2022 05:23:03",
-          ult_atualizacao: "05-02-2022 05:23:03",
-          codibge: 3154606,
-          evento: "Movimentos de Massa - Moderado",
-          nivel: "Moderado",
-          status: 1
-        }
-      ],
-      atualizado: "23-02-2022 01:05:02 UTC"
+    try {
+      const alerts = await this.httpService.get(env.cemaden.ALERTS_PANEL) as ICemadenService.Params
+      return alerts
+    } catch (error) {
+      throw new Error()
     }
-    return await Promise.resolve(alerts)
   }
 }
