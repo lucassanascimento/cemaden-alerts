@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src",
     "module": "commonJS",
     "target": "es2020",
     "experimentalDecorators": true,
@@ -13,37 +12,47 @@
     "strict": true,
     "moduleResolution": "Node",
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "skipLibCheck": true,
     "paths": {
-      "@main/*": [
-        "./src/main/*"
-      ],
       "@application/*": [
-        "./src/application/*"
+        "src/application/*"
+      ],
+      "@commons/*": [
+        "src/commons/*"
+      ],
+      "@domain": [
+        "src/domain/"
       ],
       "@domain/*": [
-        "./src/domain/*"
+        "src/domain/*"
       ],
       "@infrastructure/*": [
         "src/infrastructure/*"
       ],
-      "@usecases/*": [
-        "./src/usecases/*"
+      "@useCases": [
+        "src/useCases"
+      ],
+      "@useCases/*": [
+        "src/useCases/*"
+      ],
+      "@main/*": [
+        "src/main/*"
       ],
       "@presentation/*": [
-        "./src/presentation/*"
+        "src/presentation/*"
       ],
-      "@commons/*": [
-        "./src/commons/*"
-      ],
+      "@test/*": [
+        "src/test/*"
+      ]
     },
     "lib": [
       "ES2020"
     ]
   },
   "include": [
-    "**/src/**/*/*"
+    "**/test/**/*",
+    "**/src/**/*"
   ],
   "exclude": [
     "**/node_modules/**/*"
