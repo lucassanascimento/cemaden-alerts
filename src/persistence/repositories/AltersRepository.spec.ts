@@ -1,4 +1,4 @@
-import { MongoHelper } from '../helper/MongoHelper'
+import { MongoHelper } from '@infrastructure/db/mongodb/helper/MongoHelper'
 import { AltersRepository } from './AltersRepository'
 
 const makeSut = (): AltersRepository => {
