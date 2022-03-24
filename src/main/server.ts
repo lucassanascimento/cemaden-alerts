@@ -4,13 +4,11 @@ import 'module-alias/register'
 import env from '@main/config/env'
 import app from '@presentation/gateway/rest/app'
 import { MongoService } from '@infrastructure/db/mongodb/MongoService'
-import alertsCemande from './config/alertsCemande'
+import cemadenCron from './config/cemadenCron'
+import { logger } from '@commons/uteis/logger'
 
-// const dbConnection = new MongoService()
-
-alertsCemande.listen(3000)
-
+cemadenCron.listen(3000)
 app.listen(
   env.port,
-  () => console.log(`Server running at: http://localhost:${env.port}`)
+  () => logger.info(`Server running at: http://localhost:${env.port}`)
 )

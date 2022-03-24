@@ -1,7 +1,7 @@
 import { Collection, MongoClient } from 'mongodb'
 import env from '@main/config/env'
-import { injectable } from 'tsyringe';
 import { IMongoService } from './IMongoService';
+import { logger } from '@commons/uteis/logger';
 
 export class MongoService implements IMongoService {
   private url: string
@@ -12,7 +12,7 @@ export class MongoService implements IMongoService {
     MongoClient.connect(this.url)
       .then((client) => {
         this.client = client
-        console.log('Mongodb connected')
+        logger.info('Mongodb connected')
     })
   }
 

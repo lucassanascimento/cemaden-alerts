@@ -12,6 +12,5 @@ export class AltersRepository implements IAlertsRepository {
    add = async (): Promise<void> => {
     const alertsCollection = this.mongoService.getCollection('alertsHistory')
     const documentsTotal = await alertsCollection.countDocuments()
-    console.log(documentsTotal)
   }
 }
