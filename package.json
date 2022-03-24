@@ -45,6 +45,8 @@
     "mongodb": "^4.4.1",
     "node-cron": "^3.0.0",
     "nodemon": "^2.0.15",
+    "pino": "^7.9.2",
+    "pino-pretty": "^7.6.0",
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.9.0",
     "ts-node-dev": "^1.1.8",
