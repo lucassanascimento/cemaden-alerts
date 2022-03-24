@@ -4,8 +4,11 @@ import 'module-alias/register'
 import env from '@main/config/env'
 import app from '@presentation/gateway/rest/app'
 import { MongoService } from '@infrastructure/db/mongodb/MongoService'
+import alertsCemande from './config/alertsCemande'
 
-const dbConnection = new MongoService()
+// const dbConnection = new MongoService()
+
+alertsCemande.listen(3000)
 
 app.listen(
   env.port,
