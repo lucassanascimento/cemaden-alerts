@@ -9,6 +9,6 @@
     ".git",
     "node_modules"
   ],
-  "exec": "node -r ts-node/register -r tsconfig-paths/register"
+  "exec": "node -r ts-node/register -r dotenv/config -r tsconfig-paths/register"
 }
 
