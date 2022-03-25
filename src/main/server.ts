@@ -4,7 +4,7 @@ import 'module-alias/register'
 import env from '@main/config/env'
 import app from '@presentation/gateway/rest/app'
 import cemadenCron from './config/cemadenCron'
-import { logger } from '@commons/uteis/logger'
+import { logger } from '@commons/utils/logger'
 
 cemadenCron.listen(3000)
 app.listen(

@@ -1,5 +1,5 @@
 import { ICemaden } from '@application/interfaces/ICemaden';
-import { logger } from '@commons/uteis/logger';
+import { logger } from '@commons/utils/logger';
 import { IAlertsRepository } from '@domain/Alerts/repositories/IAlertsRepository';
 import { ICemadenService } from '@infrastructure/services/CemadenService/ICemadenService';
 import express from 'express'
