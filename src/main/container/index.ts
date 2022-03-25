@@ -1,11 +1,12 @@
-import { IListAlertsUseCase } from '@domain/Alerts/usecases'
+import { ICreateAlertsHistoryUseCase, IListAlertsUseCase } from '@domain/Alerts/usecases'
 import { IMongoService } from '@infrastructure/db/mongodb/IMongoService'
 import { MongoService } from '@infrastructure/db/mongodb/MongoService'
-import { CemandeService } from '@infrastructure/services/CemadenService/CemadenService'
+import { CemadenService } from '@infrastructure/services/CemadenService/CemadenService'
 import { ICemadenService } from '@infrastructure/services/CemadenService/ICemadenService'
 import { HttpService } from '@infrastructure/services/HttpService/HttpService'
 import { IHttpService } from '@infrastructure/services/HttpService/IHttpService'
 import { AlertsRepository } from 'src/persistence/repositories/AlertsRepository'
+import { CreateAlertsHistoryUseCase } from 'src/usecases/Alerts/CreateAlertsHistoryUseCase'
 import { ListAlertsUseCase } from 'src/usecases/Alerts/ListAlertsUseCase'
 import { container } from 'tsyringe'
 
@@ -16,8 +17,9 @@ container.registerSingleton<IMongoService>('MongoService', MongoService)
 container.registerSingleton<AlertsRepository>('AlertsRepository', AlertsRepository)
 
 // services
-container.registerSingleton<ICemadenService>('CemandeService', CemandeService)
+container.registerSingleton<ICemadenService>('CemadenService', CemadenService)
 container.registerSingleton<IHttpService>('HttpService', HttpService)
 
 // UseCase
 container.registerSingleton<IListAlertsUseCase>('ListAlertsUseCase', ListAlertsUseCase)
+container.registerSingleton<ICreateAlertsHistoryUseCase>('CreateAlertsHistoryUseCase', CreateAlertsHistoryUseCase)

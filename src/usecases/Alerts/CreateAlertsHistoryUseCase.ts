@@ -1,22 +1,19 @@
 import { AlertsStatus } from '@domain/Alerts';
 import { IAlertsRepository } from '@domain/Alerts/repositories/IAlertsRepository';
-import { IListAlertsUseCase } from '@domain/Alerts/usecases';
+import { ICreateAlertsHistoryUseCase } from '@domain/Alerts/usecases';
 import { ICemadenService } from '@infrastructure/services/CemadenService/ICemadenService';
 import { inject, injectable, singleton } from 'tsyringe'
 
 @injectable()
-export class ListAlertsUseCase implements IListAlertsUseCase {
+export class CreateAlertsHistoryUseCase implements ICreateAlertsHistoryUseCase {
   constructor(
-    @inject('CemadenService')
-    private cemadenService: ICemadenService,
-
     @inject('AlertsRepository')
     private altersRepository: IAlertsRepository
   ) { }
 
-  async handle(): Promise<AlertsStatus> {
-    const alerts = await this.cemadenService.listAlerts()
-    return this.makeAlertsStatus(alerts)
+  async handle(alert: ICreateAlertsHistoryUseCase.Params): Promise<void> {
+    const alerts = this.makeAlertsStatus(alert)
+    await this.altersRepository.add(alerts)
   }
 
   private makeAlertsStatus = (data: ICemadenService.Params): AlertsStatus => {

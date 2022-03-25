@@ -2,9 +2,11 @@ import { inject, injectable } from "tsyringe";
 import { IHttpService } from "../HttpService/IHttpService";
 import { ICemadenService } from "./ICemadenService";
 import env from '@main/config/env'
+import { logger } from "@commons/utils/logger";
+import { ServerError } from "@commons/errors/ServerError";
 
 @injectable()
-export class CemandeService implements ICemadenService {
+export class CemadenService implements ICemadenService {
   constructor(
     @inject('HttpService')
     private httpService: IHttpService
@@ -13,8 +15,9 @@ export class CemandeService implements ICemadenService {
     try {
       const alerts = await this.httpService.get(env.app.cemaden.ALERTS_PANEL) as ICemadenService.Params
       return alerts
-    } catch (error) {
-      throw new Error()
+    } catch (error: any) {
+      logger.info(error, 'Error to capture CEMADEN alerts data')
+      throw new ServerError(error)
     }
   }
 }

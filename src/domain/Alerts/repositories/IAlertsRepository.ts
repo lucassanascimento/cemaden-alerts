@@ -1,3 +1,5 @@
+import { AlertsStatus } from '../Alerts';
+
 export interface IAlertsRepository {
-  add: (data: any) => Promise<void>;
+  add: (data: AlertsStatus) => Promise<void>;
 }

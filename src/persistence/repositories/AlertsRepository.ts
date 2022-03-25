@@ -1,3 +1,4 @@
+import { AlertsStatus } from '@domain/Alerts';
 import { IAlertsRepository } from '@domain/Alerts/repositories/IAlertsRepository';
 import { IMongoService } from '@infrastructure/db/mongodb/IMongoService';
 import { inject, injectable } from 'tsyringe';
@@ -9,8 +10,8 @@ export class AlertsRepository implements IAlertsRepository {
     private mongoService: IMongoService
   ) { }
   
-   add = async (data: any): Promise<void> => {
-     const alertsCollection = this.mongoService.getCollection('alertsHistory')
+   add = async (data: AlertsStatus): Promise<void> => {
+     const alertsCollection = this.mongoService.getCollection('alertshistory')
      await alertsCollection.insertOne(data)
   }
 }
