@@ -1,3 +1,3 @@
 export interface IAlertsRepository {
-  add: () => Promise<void>;
+  add: (data: any) => Promise<void>;
 }

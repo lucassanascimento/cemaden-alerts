@@ -16,7 +16,6 @@ export class ListAlertsUseCase implements IListAlertsUseCase {
 
   async handle(): Promise<AlertsStatus> {
     const alerts = await this.cemandenService.listAlerts()
-    await this.altersRepository.add()
     return this.makeAlertsStatus(alerts)
   }
 

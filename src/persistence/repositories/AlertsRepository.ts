@@ -9,8 +9,8 @@ export class AlertsRepository implements IAlertsRepository {
     private mongoService: IMongoService
   ) { }
   
-   add = async (): Promise<void> => {
-    const alertsCollection = this.mongoService.getCollection('alertsHistory')
-    const documentsTotal = await alertsCollection.countDocuments()
+   add = async (data: any): Promise<void> => {
+     const alertsCollection = this.mongoService.getCollection('alertsHistory')
+     await alertsCollection.insertOne(data)
   }
 }
