@@ -3,7 +3,7 @@ import { IMongoService } from '@infrastructure/db/mongodb/IMongoService';
 import { inject, injectable } from 'tsyringe';
 
 @injectable()
-export class AltersRepository implements IAlertsRepository {
+export class AlertsRepository implements IAlertsRepository {
   constructor(
     @inject('MongoService')
     private mongoService: IMongoService

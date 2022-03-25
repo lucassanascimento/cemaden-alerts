@@ -1,8 +1,9 @@
+import { IAlertsRepository } from '@domain/Alerts/repositories/IAlertsRepository'
 import { MongoHelper } from '@infrastructure/db/mongodb/helper/MongoHelper'
-import { AltersRepository } from './AltersRepository'
+import { AlertsRepository } from './AlertsRepository'
 
-const makeSut = (): AltersRepository => {
-  return new AltersRepository()
+const makeSut = (): AlertsRepository => {
+  return new AlertsRepository()
 }
 
 describe('should validate mongodb', () => {

@@ -5,7 +5,7 @@ import { CemandeService } from '@infrastructure/services/CemadenService/CemadenS
 import { ICemadenService } from '@infrastructure/services/CemadenService/ICemadenService'
 import { HttpService } from '@infrastructure/services/HttpService/HttpService'
 import { IHttpService } from '@infrastructure/services/HttpService/IHttpService'
-import { AltersRepository } from 'src/persistence/repositories/AltersRepository'
+import { AlertsRepository } from 'src/persistence/repositories/AlertsRepository'
 import { ListAlertsUseCase } from 'src/usecases/Alerts/ListAlertsUseCase'
 import { container } from 'tsyringe'
 
@@ -13,7 +13,7 @@ import { container } from 'tsyringe'
 container.registerSingleton<IMongoService>('MongoService', MongoService)
 
 // Repositories
-container.registerSingleton<AltersRepository>('AltersRepository', AltersRepository)
+container.registerSingleton<AlertsRepository>('AlertsRepository', AlertsRepository)
 
 // services
 container.registerSingleton<ICemadenService>('CemandeService', CemandeService)

@@ -10,7 +10,7 @@ export class ListAlertsUseCase implements IListAlertsUseCase {
     @inject('CemandeService')
     private cemandenService: ICemadenService,
 
-    @inject('AltersRepository')
+    @inject('AlertsRepository')
     private altersRepository: IAlertsRepository
   ) { }
 
