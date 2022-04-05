@@ -10,7 +10,6 @@ app.use(cors())
 useExpressServer(app, {
   controllers: [`${__dirname}/routes/*{.ts,.js}`],
   defaultErrorHandler: false,
-  classTransformer: false
 })
 
 export default app

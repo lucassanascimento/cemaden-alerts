@@ -30,7 +30,7 @@ class Cemaden implements ICemaden {
   }
 }
 
-cron.schedule("*/5 * * * * *", () => {
+cron.schedule("*/15 * * * * *", () => {
   const alertsController = container.resolve(Cemaden)
   alertsController.handle()
   logger.info("Runs CRON CEMADEN every 5 seg")
