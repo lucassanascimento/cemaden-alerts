@@ -1,4 +1,4 @@
-import { AlertsStatus } from '@domain/Alerts';
+import { AlertHistory, AlertStatus } from '@domain/Alerts';
 import { IAlertsRepository } from '@domain/Alerts/repositories/IAlertsRepository';
 import { IMongoService } from '@infrastructure/db/mongodb/IMongoService';
 import { inject, injectable } from 'tsyringe';
@@ -9,9 +9,15 @@ export class AlertsRepository implements IAlertsRepository {
     @inject('MongoService')
     private mongoService: IMongoService
   ) { }
-  
-   add = async (data: AlertsStatus): Promise<void> => {
-     const alertsCollection = this.mongoService.getCollection('alertshistory')
-     await alertsCollection.insertOne(data)
+
+  add = async (data: AlertStatus): Promise<void> => {
+    const alertsCollection = this.mongoService.getCollection('alertshistory')
+    await alertsCollection.insertOne(data)
+  }
+
+  list = async (): Promise<AlertHistory[]> => {
+    const alertsCollection = this.mongoService.getCollection('alertshistory')
+    const alerts = alertsCollection.find() as unknown as AlertHistory[]
+    return alerts;
   }
 }

@@ -1,5 +1,5 @@
-import { AlertsStatus } from "../Alerts";
+import { AlertStatus } from "../AlertStatus";
 
 export interface IListAlertsUseCase {
-  handle(): Promise<AlertsStatus>
+  handle(): Promise<AlertStatus[]>
 }

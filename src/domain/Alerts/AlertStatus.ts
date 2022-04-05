@@ -1,5 +1,5 @@
 
-export type AlertsStatus = {
+export type AlertStatus = {
   alerts: AlertsDetail[],
   updatedAt: string
 }

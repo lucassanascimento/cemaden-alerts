@@ -1,4 +1,4 @@
-import { AlertsStatus } from '@domain/Alerts';
+import { AlertStatus } from '@domain/Alerts';
 import { IAlertsRepository } from '@domain/Alerts/repositories/IAlertsRepository';
 import { ICreateAlertsHistoryUseCase } from '@domain/Alerts/usecases';
 import { FakeAlertsRepository } from '@test/repositories/FakeAlertsRepository';

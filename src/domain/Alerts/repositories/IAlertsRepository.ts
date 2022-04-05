@@ -1,5 +1,6 @@
-import { AlertsStatus } from '../Alerts';
+import { AlertHistory, AlertStatus } from '@domain/Alerts';
 
 export interface IAlertsRepository {
-  add: (data: AlertsStatus) => Promise<void>;
+  add: (data: AlertStatus) => Promise<void>;
+  list: () => Promise<AlertHistory[]>;
 }

@@ -1,6 +1,7 @@
-import { AlertsStatus } from "@domain/Alerts";
+import { AlertStatus } from "@domain/Alerts";
 
-const alertsMock: AlertsStatus = {
+const alertsMock: AlertStatus = {
+	id: 'álsndfojbsdcpals',
 	alerts: [
 		{
 			alertCode: 1041,

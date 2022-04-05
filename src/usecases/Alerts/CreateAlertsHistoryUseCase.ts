@@ -1,4 +1,4 @@
-import { AlertsStatus } from '@domain/Alerts';
+import { AlertStatus } from '@domain/Alerts';
 import { IAlertsRepository } from '@domain/Alerts/repositories/IAlertsRepository';
 import { ICreateAlertsHistoryUseCase } from '@domain/Alerts/usecases';
 import { ICemadenService } from '@infrastructure/services/CemadenService/ICemadenService';
@@ -16,7 +16,7 @@ export class CreateAlertsHistoryUseCase implements ICreateAlertsHistoryUseCase {
     await this.altersRepository.add(alerts)
   }
 
-  private makeAlertsStatus = (data: ICemadenService.Params): AlertsStatus => {
+  private makeAlertsStatus = (data: ICemadenService.Params): Omit<AlertStatus, 'id'> => {
     return {
       alerts: data.alertas.map((alert) => ({
         alertCode: alert.cod_alerta,
