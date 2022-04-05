@@ -3,7 +3,7 @@ import { IAlertsRepository } from '@domain/Alerts/repositories/IAlertsRepository
 import { ICreateAlertsHistoryUseCase } from '@domain/Alerts/usecases';
 import { FakeAlertsRepository } from '@test/repositories/FakeAlertsRepository';
 import { getCemadenAlertsMock } from '@test/repositories/mocks/alertsCemadenMock';
-import { getAlertsMock } from '@test/repositories/mocks/alertsMock';
+import { getAlertStatusMock } from '@test/repositories/mocks/alertStatusMock';
 import { CreateAlertsHistoryUseCase } from './CreateAlertsHistoryUseCase';
 
 const mackSut = () => {
@@ -18,7 +18,7 @@ describe('CreateAlertsHistoryUseCase', () => {
     const { fakeAlertsRepository, fakeCreateAlertsHistoryUseCase } = mackSut()
     const alertRepositorySpy = jest.spyOn(fakeAlertsRepository, 'add')
     await fakeCreateAlertsHistoryUseCase.handle(getCemadenAlertsMock())
-    expect(alertRepositorySpy).toBeCalledWith(getAlertsMock())
+    expect(alertRepositorySpy).toBeCalledWith(getAlertStatusMock())
   })
   
   it('Should call CreateAlertsHistoryUseCase with correct values', async () => {

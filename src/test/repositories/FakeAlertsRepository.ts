@@ -1,8 +1,8 @@
 import { AlertStatus } from "@domain/Alerts";
 import { IAlertsRepository } from "@domain/Alerts/repositories/IAlertsRepository";
-import { getAlertsMock } from "./mocks/alertsMock";
+import { getAlertHistoryMock } from "./mocks/alertHistoryMock";
 
 export class FakeAlertsRepository implements IAlertsRepository {
-  add = async (data: Omit<AlertStatus, 'id'>) => {};
-  list = async () => [getAlertsMock()];
+  add = async (data: AlertStatus) => {};
+  list = async () => [getAlertHistoryMock()];
 }

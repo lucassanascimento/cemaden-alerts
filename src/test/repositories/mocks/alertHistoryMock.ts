@@ -1,6 +1,6 @@
-import { AlertStatus } from "@domain/Alerts";
+import { AlertHistory } from "@domain/Alerts";
 
-const alertsMock: AlertStatus = {
+const alertsMock: AlertHistory = {
 	id: 'álsndfojbsdcpals',
 	alerts: [
 		{
@@ -205,4 +205,4 @@ const alertsMock: AlertStatus = {
 	updatedAt: "25-02-2022 01:43:01 UTC"
 }
 
-export const getAlertsMock = () => ({ ...alertsMock })
+export const getAlertHistoryMock = () => ({ ...alertsMock })
