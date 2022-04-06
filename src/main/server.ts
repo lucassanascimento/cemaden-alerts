@@ -6,10 +6,13 @@ import app from '@presentation/gateway/rest/app'
 import cemadenCron from './config/cemadenCron'
 import { logger } from '@commons/utils/logger'
 
-const { CRON_MODE } = env.app
+const { CEMADEN } = env.cron
 
-if (CRON_MODE) {
-  cemadenCron.listen(3000)
+if (CEMADEN) {
+  cemadenCron.listen(
+    env.cron.port,
+    () => logger.info(`CRON running at: http://localhost:${env.cron.port}`)
+  )
 } else {
   app.listen(
     env.app.port,

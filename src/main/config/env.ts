@@ -4,7 +4,10 @@ export default {
     cemaden: {
       ALERTS_PANEL: 'http://www2.cemaden.gov.br/painelalertas/wsAlertas2.php'
     },
-    CRON_MODE: process.env.CRON_ON
+  },
+  cron: {
+    port: process.env.PORT || 5001,
+    CEMADEN: process.env.CEMADEN || null
   },
   mongodb: {
     mongoUri: String(process.env.MONGO_CONNECTION_STRING || 'mongodb://127.0.0.1:27017')
