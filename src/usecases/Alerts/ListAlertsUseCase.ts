@@ -1,7 +1,7 @@
-import { AlertHistory, AlertStatus } from '@domain/Alerts';
+import { AlertHistory } from '@domain/Alerts';
 import { IAlertsRepository } from '@domain/Alerts/repositories/IAlertsRepository';
 import { IListAlertsUseCase } from '@domain/Alerts/usecases';
-import { inject, injectable, singleton } from 'tsyringe'
+import { inject, injectable } from 'tsyringe'
 
 @injectable()
 export class ListAlertsUseCase implements IListAlertsUseCase {

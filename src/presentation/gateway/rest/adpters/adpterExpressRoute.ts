@@ -5,7 +5,7 @@ import { Request, Response } from 'express'
 
 type ControllerFunction = (request: any) => Promise<IControllerResponseModel<any>>;
 
-export const adpterExpressRoute = async (controller: ControllerFunction, request: Request, response: Response,) =>
+export const adapterExpressRoute = async (controller: ControllerFunction, request: Request, response: Response,) =>
 {
   try {
     const res = {
