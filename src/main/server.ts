@@ -11,16 +11,11 @@ const { CEMADEN } = env.cron
 if (CEMADEN) {
   cemadenCron.listen(
     env.cron.port,
-    () => console.log(`CRON running at: http://localhost:${env.cron.port}`)
+    () => logger.info(`CRON running at: http://localhost:${env.cron.port}`)
   )
 } else {
   app.listen(
     env.app.port,
-    () => console.log(`Server running at: http://localhost:${env.app.port}`)
+    () => logger.info(`Server running at: http://localhost:${env.app.port}`)
   )
 }
-
-// app.listen(
-//   env.app.port,
-//   () => console.log(`Server running at: http://localhost:${env.app.port}`)
-// )

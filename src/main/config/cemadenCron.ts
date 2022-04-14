@@ -23,17 +23,17 @@ class Cemaden implements ICemaden {
     try {
       const alerts = await this.cemadenService.listAlerts()
       await this.createAlertsHistoryUseCase.handle(alerts)
-      console.log('Data saved successfully')
+      logger.info('Data saved successfully')
     } catch (error) {
       logger.error(error, 'Error to capture CEMADEN Alerts')
     }
   }
 }
 
-cron.schedule("*/10 * * * * *", () => {
+cron.schedule("*/1 * * * *", () => {
   const alertsController = container.resolve(Cemaden)
   alertsController.handle()
-  console.log("Runs CRON CEMADEN every 5 seg")
+  logger.info("Runs CRON CEMADEN every 5 seg")
 });
 
 export default cemadenCron
