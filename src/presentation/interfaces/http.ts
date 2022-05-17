@@ -1,6 +1,6 @@
 export type HttpResponse<T = any> = {
   statusCode: number
-  data: T
+  data?: T
 }
 
 export const serverError = (error: Error): HttpResponse => ({
@@ -11,4 +11,8 @@ export const serverError = (error: Error): HttpResponse => ({
 export const ok = (data: any): HttpResponse => ({
   statusCode: 200,
   data
+})
+
+export const created = (): HttpResponse => ({
+  statusCode: 201,
 })
