@@ -1,6 +1,5 @@
 import { IAlertsRepository } from '@domain/Alerts/repositories/IAlertsRepository'
 import { ICreateAlertsHistoryUseCase, IListAlertsUseCase } from '@domain/Alerts/usecases'
-import { ISendMensageWhatsAppUseCase } from '@domain/Mensage/usecase/ISendMensageWhatsAppUseCase'
 import { IUsersRepository } from '@domain/Users/repositories/IUsers'
 import { ICreateUserUseCase } from '@domain/Users/usecases/ICreateUserUseCase'
 import { IMongoService } from '@infrastructure/db/mongodb/IMongoService'
@@ -13,7 +12,7 @@ import { AlertsRepository } from 'src/persistence/repositories/Alerts/AlertsRepo
 import { UsersRepository } from 'src/persistence/repositories/Users/UsersRespository'
 import { CreateAlertsHistoryUseCase } from 'src/usecases/Alerts/CreateAlertsHistoryUseCase'
 import { ListAlertsUseCase } from 'src/usecases/Alerts/ListAlertsUseCase'
-import { SendMensageWhatsAppUseCase } from 'src/usecases/Mensagens/SendMensageWhatsAppUseCase'
+import { SendMessageWhatsAppUseCase } from 'src/usecases/Mensagens/SendMessageWhatsAppUseCase'
 import { CreateUserUseCase } from 'src/usecases/Users/CreateUserUseCase'
 import { container } from 'tsyringe'
 
@@ -32,4 +31,4 @@ container.registerSingleton<IHttpService>('HttpService', HttpService)
 container.registerSingleton<IListAlertsUseCase>('ListAlertsUseCase', ListAlertsUseCase)
 container.registerSingleton<ICreateAlertsHistoryUseCase>('CreateAlertsHistoryUseCase', CreateAlertsHistoryUseCase)
 container.registerSingleton<ICreateUserUseCase>('CreateUserUseCase', CreateUserUseCase)
-container.registerSingleton<ISendMensageWhatsAppUseCase>('SendMensageWhatsAppUseCase', SendMensageWhatsAppUseCase)
+container.registerSingleton<SendMessageWhatsAppUseCase>('SendMessageWhatsAppUseCase', SendMessageWhatsAppUseCase)
