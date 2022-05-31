@@ -53,4 +53,4 @@ Antes de executar esse comando verifique se seu banco de dados está rodando </b
 <p>Função que a rota chama - Método - Exemplo</p>
 
 1. :heavy_check_mark: Criar Usuário - POST - localhost:5000/user/
-3. :heavy_check_mark: Buscar Produtos - GET - localhost:3333/alerts
+3. :heavy_check_mark: Lista Dados de Alertas - GET - localhost:3333/alerts
