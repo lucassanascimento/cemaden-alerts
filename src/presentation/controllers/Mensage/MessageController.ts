@@ -1,8 +1,8 @@
 import { IControllerResponseModel } from "@application/interfaces/IControllerResponseModel";
 import { ISendMessageWhatsAppUseCase } from "@domain/Message/usecase/ISendMessageWhatsAppUseCase";
-import { created, serverError } from "@presentation/interfaces";
+import {  ok, serverError } from "@presentation/interfaces";
 import { inject, injectable } from "tsyringe";
-import { IMessageController } from "./interfaces/IMessageController";
+import { IMessageController, MessageModel } from "./interfaces/IMessageController";
 
 @injectable()
 export class MessageController implements IMessageController {
@@ -11,10 +11,11 @@ export class MessageController implements IMessageController {
     private sendMessageWhatsAppUseCase: ISendMessageWhatsAppUseCase
   ) { }
 
-  send = async (): Promise<IControllerResponseModel> => {
+  send = async (data: MessageModel): Promise<IControllerResponseModel> => {
+    const { number, text } = data
     try {
-      await this.sendMessageWhatsAppUseCase.handle()
-      return created()
+      await this.sendMessageWhatsAppUseCase.handle(number, text)
+      return ok();
     } catch (error) {
       return serverError(error as Error)
     }

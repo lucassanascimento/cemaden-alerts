@@ -8,6 +8,8 @@ import { CemadenService } from '@infrastructure/services/CemadenService/CemadenS
 import { ICemadenService } from '@infrastructure/services/CemadenService/ICemadenService'
 import { HttpService } from '@infrastructure/services/HttpService/HttpService'
 import { IHttpService } from '@infrastructure/services/HttpService/IHttpService'
+import { IWhatsappService } from '@infrastructure/services/WhatsappService/IWhatsappService'
+import { WhatsappService } from '@infrastructure/services/WhatsappService/WhatsappService'
 import { AlertsRepository } from 'src/persistence/repositories/Alerts/AlertsRepository'
 import { UsersRepository } from 'src/persistence/repositories/Users/UsersRespository'
 import { CreateAlertsHistoryUseCase } from 'src/usecases/Alerts/CreateAlertsHistoryUseCase'
@@ -26,6 +28,7 @@ container.registerSingleton<IUsersRepository>('UsersRespository', UsersRepositor
 // services
 container.registerSingleton<ICemadenService>('CemadenService', CemadenService)
 container.registerSingleton<IHttpService>('HttpService', HttpService)
+container.registerSingleton<IWhatsappService>('WhatsappService', WhatsappService)
 
 // UseCase
 container.registerSingleton<IListAlertsUseCase>('ListAlertsUseCase', ListAlertsUseCase)

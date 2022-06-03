@@ -8,7 +8,7 @@ export const serverError = (error: Error): HttpResponse => ({
   data: error.stack
 })
 
-export const ok = (data: any): HttpResponse => ({
+export const ok = (data?: any): HttpResponse => ({
   statusCode: 200,
   data
 })

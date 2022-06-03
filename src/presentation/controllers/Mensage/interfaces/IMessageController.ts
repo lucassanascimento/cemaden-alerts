@@ -2,7 +2,7 @@ import { IControllerResponseModel } from "@application/interfaces/IControllerRes
 import { User } from "@domain/Users/User";
 
 export interface IMessageController {
-  send: () => Promise<IControllerResponseModel>
+  send: (data: MessageModel) => Promise<IControllerResponseModel>
 }
 
 export interface IMessage {

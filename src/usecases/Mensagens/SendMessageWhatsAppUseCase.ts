@@ -1,27 +1,15 @@
-import { logger } from '@commons/utils/logger'
-import { injectable } from 'tsyringe'
+import { IWhatsappService } from './../../infrastructure/services/WhatsappService/IWhatsappService';
+import { inject, injectable } from 'tsyringe'
 import { ISendMessageWhatsAppUseCase } from '@domain/Message/usecase/ISendMessageWhatsAppUseCase'
-import { create, Whatsapp } from 'venom-bot';
-
 @injectable()
 export class SendMessageWhatsAppUseCase implements ISendMessageWhatsAppUseCase {
-  private client: Whatsapp;
   constructor(
-  ) {
-    this.handle()
-  }
+    @inject('WhatsappService')
+    private whatsappService: IWhatsappService
+  ) { }
 
-  handle = async (): Promise<void> => {
-    const qr = (base64Qrimg: string) => {
-      console.log("AQuiiiiiiiii", base64Qrimg)
-    }
-    const status = (statusSession: string, session: string) => { }
-
-    const start = (client: Whatsapp) => {
-      this.client = client;
-    }
-    create('send-alerts', qr, status)
-      .then((client) => start(client))
-      .catch(error => logger.info(error))
+  handle = async (to: string, text: string): Promise<void> => {
+    // '559391762523', 'Oi, como vai?'
+    this.whatsappService.sendText(to, text)
   }
 }

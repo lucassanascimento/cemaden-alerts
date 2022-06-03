@@ -1,3 +1,3 @@
 export interface ISendMessageWhatsAppUseCase {
-  handle(): Promise<void>
+  handle(to: string, text: string): Promise<void>
 }
