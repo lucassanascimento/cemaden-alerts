@@ -6,7 +6,7 @@ import { inject, injectable } from "tsyringe";
 @injectable()
 export class CreateUserUseCase implements ICreateUserUseCase {
   constructor(
-    @inject('UsersRespository')
+    @inject('UsersRepository')
     private userRepository: IUsersRepository
   ) { }
 

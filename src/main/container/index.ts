@@ -11,10 +11,10 @@ import { IHttpService } from '@infrastructure/services/HttpService/IHttpService'
 import { IWhatsappService } from '@infrastructure/services/WhatsappService/IWhatsappService'
 import { WhatsappService } from '@infrastructure/services/WhatsappService/WhatsappService'
 import { AlertsRepository } from 'src/persistence/repositories/Alerts/AlertsRepository'
-import { UsersRepository } from 'src/persistence/repositories/Users/UsersRespository'
+import { UsersRepository } from 'src/persistence/repositories/Users/UsersRepository'
 import { CreateAlertsHistoryUseCase } from 'src/usecases/Alerts/CreateAlertsHistoryUseCase'
 import { ListAlertsUseCase } from 'src/usecases/Alerts/ListAlertsUseCase'
-import { SendMessageWhatsAppUseCase } from 'src/usecases/Mensagens/SendMessageWhatsAppUseCase'
+import { SendMessageWhatsAppUseCase } from 'src/usecases/Message/SendMessageWhatsAppUseCase'
 import { CreateUserUseCase } from 'src/usecases/Users/CreateUserUseCase'
 import { container } from 'tsyringe'
 
@@ -23,7 +23,7 @@ container.registerSingleton<IMongoService>('MongoService', MongoService)
 
 // Repositories
 container.registerSingleton<IAlertsRepository>('AlertsRepository', AlertsRepository)
-container.registerSingleton<IUsersRepository>('UsersRespository', UsersRepository)
+container.registerSingleton<IUsersRepository>('UsersRepository', UsersRepository)
 
 // services
 container.registerSingleton<ICemadenService>('CemadenService', CemadenService)

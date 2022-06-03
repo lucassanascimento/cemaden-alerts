@@ -11,7 +11,7 @@ const makeSut = () => {
 }
 
 describe('CreateUserUseCase', () => {
-  it('should call UsersRespository with correct values', async () => {
+  it('should call UsersRepository with correct values', async () => {
     const { fakeUsersRespository, fakeCreateUserUseCase } = makeSut()
     const userRespositorySpy = jest.spyOn(fakeUsersRespository, 'add')
     await fakeCreateUserUseCase.handle(getUserMock())
