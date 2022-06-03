@@ -25,6 +25,7 @@
 1. :heavy_check_mark: Criar Usuário
 2. :heavy_check_mark: Listar Alertas
 3. :heavy_check_mark: Criar Alerta
+4. :heavy_check_mark: Enviar Mensagem no WhatsApp
 
 ## :ballot_box_with_check: Executando o projeto
 
@@ -54,3 +55,4 @@ Antes de executar esse comando verifique se seu banco de dados está rodando </b
 
 1. :heavy_check_mark: Criar Usuário - POST - localhost:5000/user/
 3. :heavy_check_mark: Lista Dados de Alertas - GET - localhost:3333/alerts
+4. :heavy_check_mark: Enviar Mensagem  - POST - http://localhost:5000/message
