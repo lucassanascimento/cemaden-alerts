@@ -13,6 +13,7 @@
     "build": "rimraf dist && tsc"
   },
   "dependencies": {
+    "@wppconnect-team/wppconnect": "^1.13.3",
     "axios": "^0.26.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
