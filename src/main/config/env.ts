@@ -11,5 +11,8 @@ export default {
   },
   mongodb: {
     mongoUri: String(process.env.MONGO_CONNECTION_STRING || 'mongodb://127.0.0.1:27017')
+  },
+  ibge: {
+    localidades: process.env.IBGE_LOCALIDADES || 'https://servicodados.ibge.gov.br/api/v1/localidades'
   }
 }
