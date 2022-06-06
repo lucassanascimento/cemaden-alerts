@@ -17,9 +17,9 @@ export class WhatsappService implements IWhatsappService{
     }
     create({
       session: 'whats', //Pass the name of the client you want to start the bot
-      catchQR: (base64Qrimg) => {
+      catchQR: (base64Qrimg: string) => {
       },
-      statusFind: (statusSession, session) => {
+      statusFind: (statusSession: string, session: string) => {
         console.log('Status Session: ', statusSession); //return isLogged || notLogged || browserClose || qrReadSuccess || qrReadFail || autocloseCalled || desconnectedMobile || deleteToken
         //Create session wss return "serverClose" case server for close
         console.log('Session name: ', session);
@@ -44,8 +44,8 @@ export class WhatsappService implements IWhatsappService{
         WAToken2: '"1@lPpzwC...."',
       }
     })
-      .then((client) => start(client))
-      .catch((error) => logger.info(error));
+      .then((client: Whatsapp) => start(client))
+      .catch((error: Error) => logger.info(error));
   }
 
   sendText = async (to: string, content: string): Promise<void> => {
