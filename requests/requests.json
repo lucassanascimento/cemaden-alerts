@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "0957a173-e0ad-4c3a-82ac-44bf13ca0e36",
+		"name": "Cemaden",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7681793"
+	},
+	"item": [
+		{
+			"name": "send message Whatsapp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"number\": \"559391280252\",\n    \"text\": \"Olá, isso é um teste de envio de mensagem da disciplina de Sistemas Distribuídos\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"ju\",\n  \"email\": \"ju@gmail.com\",\n  \"city\": \"santarem\",\n  \"state\": \"pa\",\n  \"number\": \"5593991762523\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ibge - municipios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios/1303403/distritos",
+					"protocol": "https",
+					"host": [
+						"servicodados",
+						"ibge",
+						"gov",
+						"br"
+					],
+					"path": [
+						"api",
+						"v1",
+						"localidades",
+						"municipios",
+						"1303403",
+						"distritos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Alerts Cemaden",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www2.cemaden.gov.br/painelalertas/wsAlertas2.php",
+					"protocol": "http",
+					"host": [
+						"www2",
+						"cemaden",
+						"gov",
+						"br"
+					],
+					"path": [
+						"painelalertas",
+						"wsAlertas2.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Alerts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/alerts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"alerts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
