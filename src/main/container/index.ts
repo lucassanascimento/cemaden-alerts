@@ -1,7 +1,10 @@
+import { INotifyUser } from '@application/Notificate/INotifyUser'
+import { NotifyUser } from '@application/Notificate/NotifyUser'
 import { IAlertsRepository } from '@domain/Alerts/repositories/IAlertsRepository'
 import { ICreateAlertsHistoryUseCase, IListAlertsUseCase } from '@domain/Alerts/usecases'
 import { IUsersRepository } from '@domain/Users/repositories/IUsers'
 import { ICreateUserUseCase } from '@domain/Users/usecases/ICreateUserUseCase'
+import { IListUsersUseCase } from '@domain/Users/usecases/IListUsersUseCase'
 import { IMongoService } from '@infrastructure/db/mongodb/IMongoService'
 import { MongoService } from '@infrastructure/db/mongodb/MongoService'
 import { CemadenService } from '@infrastructure/services/CemadenService/CemadenService'
@@ -18,6 +21,7 @@ import { CreateAlertsHistoryUseCase } from 'src/usecases/Alerts/CreateAlertsHist
 import { ListAlertsUseCase } from 'src/usecases/Alerts/ListAlertsUseCase'
 import { SendMessageWhatsAppUseCase } from 'src/usecases/Message/SendMessageWhatsAppUseCase'
 import { CreateUserUseCase } from 'src/usecases/Users/CreateUserUseCase'
+import { ListUsersUseCase } from 'src/usecases/Users/ListUsersUseCase'
 import { container } from 'tsyringe'
 
 // Database
@@ -33,8 +37,12 @@ container.registerSingleton<IHttpService>('HttpService', HttpService)
 container.registerSingleton<IWhatsappService>('WhatsappService', WhatsappService)
 container.registerSingleton<IIbgeService>('IbgeService', IbgeService)
 
+//application
+container.registerSingleton<INotifyUser>('NotifyUser', NotifyUser)
+
 // UseCase
 container.registerSingleton<IListAlertsUseCase>('ListAlertsUseCase', ListAlertsUseCase)
 container.registerSingleton<ICreateAlertsHistoryUseCase>('CreateAlertsHistoryUseCase', CreateAlertsHistoryUseCase)
 container.registerSingleton<ICreateUserUseCase>('CreateUserUseCase', CreateUserUseCase)
 container.registerSingleton<SendMessageWhatsAppUseCase>('SendMessageWhatsAppUseCase', SendMessageWhatsAppUseCase)
+container.registerSingleton<IListUsersUseCase>('ListUsersUseCase', ListUsersUseCase)

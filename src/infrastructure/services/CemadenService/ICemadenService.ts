@@ -10,12 +10,14 @@ export namespace ICemadenService
   }
 }
 
-type Alertas = {
+export type Alertas = {
   cod_alerta: number,
   datahoracriacao: string,
   ult_atualizacao: string,
   codibge: number,
   evento: string,
   nivel: string,
-  status: number
+  status: number,
+  uf: string,
+  municipio: string,
 }

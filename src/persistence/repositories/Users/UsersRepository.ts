@@ -11,7 +11,29 @@ export class UsersRepository implements IUsersRepository {
   ) { }
 
   add = async (data: Omit<User, "id">): Promise<void> => {
-    const usersCollection = this.mongoService.getCollection('users')
+    const usersCollection = await this.mongoService.getCollection('users')
     await usersCollection.insertOne(data)
   }
+
+  list = async (filter?: { [key: string]: string }, page?: number, pageSize?: number): Promise<User[]> => {
+    const usersCollection = await this.mongoService.getCollection('users')
+    const usersData = await usersCollection.find({ ...filter }).skip(page || 0).limit(pageSize || 30).toArray() as unknown as Users[]
+    const users = usersData.map((user) => ({
+      id: user._id.toString(),
+      name: user.name,
+      email: user.email,
+      city: user.city,
+      state: user.state,
+      number: user.number,
+    }));
+    return users;
+  }
+}
+export interface Users {
+  _id: string,
+  name: string,
+  email: string,
+  city: string,
+  state: string,
+  number: string
 }

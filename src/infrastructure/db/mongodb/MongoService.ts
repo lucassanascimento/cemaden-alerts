@@ -20,7 +20,7 @@ export class MongoService implements IMongoService {
     await this.client.close()
   }
 
-  getCollection = (name: string): Collection => {
+  getCollection = async (name: string): Promise<Collection> => {
     return this.client.db().collection(name)
   }
 }

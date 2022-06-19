@@ -17,5 +17,7 @@ type Alertas = {
   codibge: number,
   evento: string,
   nivel: string,
-  status: number
+  status: number,
+  municipio: string,
+  uf: string,
 }

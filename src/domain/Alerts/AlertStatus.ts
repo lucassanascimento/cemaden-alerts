@@ -4,12 +4,14 @@ export type AlertStatus = {
   updatedAt: string
 }
 
-type AlertsDetail = {
+export type AlertsDetail = {
   alertCode: number,
   ibgeCode: number,
   event: string,
   level: string,
-  status: number
+  status: number,
+  county: string,
+  uf: string,
   createdAt: string,
   updatedAt: string,
 }

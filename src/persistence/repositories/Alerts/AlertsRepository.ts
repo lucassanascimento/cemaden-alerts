@@ -11,13 +11,13 @@ export class AlertsRepository implements IAlertsRepository {
   ) { }
 
   add = async (data: AlertStatus): Promise<void> => {
-    const alertsCollection = this.mongoService.getCollection('alertshistory')
+    const alertsCollection = await await this.mongoService.getCollection('alertshistory')
     await alertsCollection.insertOne(data)
   }
 
   list = async (): Promise<AlertHistory[]> => {
-    const alertsCollection = this.mongoService.getCollection('alertshistory')
-    const alerts = alertsCollection.find() as unknown as AlertHistory[]
+    const alertsCollection = await this.mongoService.getCollection('alertshistory')
+    const alerts = alertsCollection.find().toArray() as unknown as AlertHistory[]
     return alerts;
   }
 }

@@ -24,6 +24,8 @@ export class CreateAlertsHistoryUseCase implements ICreateAlertsHistoryUseCase {
         event: alert.evento,
         level: alert.nivel,
         status: alert.status,
+        county: alert.municipio,
+        uf: alert.uf,
         createdAt: alert.datahoracriacao,
         updatedAt: alert.ult_atualizacao,
       })),
