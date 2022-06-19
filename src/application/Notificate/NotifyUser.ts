@@ -22,9 +22,11 @@ export class NotifyUser implements INotifyUser {
   async handle(alerts: AlertsDetail[]): Promise<void> {
     for (let i = 0; i < alerts.length; i++) {
       const userToNotify = await this.listUsersUseCase.handle({ city: alerts[i].county });
-      const message = `⚠️ Alertas-Cemaden ⚠️ \nAtencão, sua cidade está com ${alerts[i].event}`
-      const userToNotifyPromise = userToNotify.map((user) => this.sendMessageWhatsAppUseCase.handle(user.number, message))
-      await Promise.all(userToNotifyPromise)
+      if (userToNotify.length) {
+        const message = `⚠️ Alertas-Cemaden ⚠️ \nAtencão, sua cidade está com ${alerts[i].event}`
+        const userToNotifyPromise = userToNotify.map((user) => this.sendMessageWhatsAppUseCase.handle(user.number, message))
+        await Promise.all(userToNotifyPromise)
+      }
     }
   }
 }
