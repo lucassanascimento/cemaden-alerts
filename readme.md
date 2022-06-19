@@ -55,4 +55,4 @@ Antes de executar esse comando verifique se seu banco de dados está rodando </b
 
 1. :heavy_check_mark: Criar Usuário - POST - localhost:5000/user/
 3. :heavy_check_mark: Lista Dados de Alertas - GET - localhost:3333/alerts
-4. :heavy_check_mark: Enviar Mensagem  - POST - http://localhost:5000/message
+4. :heavy_check_mark: Enviar Mensagem  - POST - localhost:5000/message
